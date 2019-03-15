@@ -7,13 +7,13 @@ OU EMAIL____________: bradenmunn@ou.edu
 Tasks:
 1. Create empty shells of all classes/enums
 2. Implement Color enum
-3. Implement GampePieceAppearance class
+3. Implement GampePiece enum
 
 
 Estimated Time (minutes):
 1. 15
 2. 15
-3. 
+3. 15
 
 
 Actual Time (minutes):
