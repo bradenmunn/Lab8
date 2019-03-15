@@ -1,0 +1,6 @@
+
+public enum Location implements BoardGame{
+	KITCHEN, CONSERVATORY, DINING_ROOM,
+	BALLROOM, STUDY, HALL, LOUNGE, LIBRARY,
+	BILLIARD_ROOM
+}
