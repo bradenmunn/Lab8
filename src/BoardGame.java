@@ -17,18 +17,7 @@ public class BoardGame {
 	}
 	
 	/**
-	 * Adds a player to the board game object. Players are uniquely 
-	 * associated with a game piece. These game pieces represent the 
-	 * player in the board game. Each player has only one game piece, 
-	 * and each game piece can be associated with only one player. As 
-	 * such, when adding a player, a check must be done to ensure that 
-	 * a player is not already associated with the game piece. Players 
-	 * are represented by their names. Players/GamePieces are given a 
-	 * location in the board game (a location inside a mansion). 
-	 * Multiple Players/GamePieces may be in the same location. Remember 
-	 * that a player is uniquely associated with a single game piece, 
-	 * so a "player at a location" is essentially the same as a "game 
-	 * piece at a location".
+	 * 
 	 * @param playerName - The name of the player to be added
 	 * @param gamePiece - The game piece to be associated with the player
 	 * @param initialLocation - The initial location of the game piece
@@ -75,7 +64,6 @@ public class BoardGame {
 				return name;
 			}
 		}
-		
 		return null;
 	}
 	
@@ -88,6 +76,7 @@ public class BoardGame {
 	{
 		playerLocations.put(playerName, newLocation);
 	}
+	
 	
 	public String[] moveTwoPlayers(String[] playerNames, Location[] newLocations)
 	{
@@ -128,11 +117,11 @@ public class BoardGame {
 		ArrayList<String> playersAtLoc = new ArrayList<String>();
 		Set<String> players = playerLocations.keySet();
 		
-		for(String i: players)
+		for(String name: players)
 		{
-			if(playerLocations.get(i).equals(loc))
+			if(playerLocations.get(name).equals(loc))
 			{
-				playersAtLoc.add(i);
+				playersAtLoc.add(name);
 			}
 		}
 		
@@ -153,12 +142,10 @@ public class BoardGame {
 		}
 		
 		return pieces;
-	
 	}
 	
 	public Set<String> getPlayers()
 	{
-		//TODO: NOT SURE IF RIGHT!!!
 		return playerPieces.keySet();
 	}
 	

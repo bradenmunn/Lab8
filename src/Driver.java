@@ -16,7 +16,7 @@ public class Driver {
 		// Moving players
 		String[] players = {"Braden", "Will"};
 		Location[] locations = {Location.STUDY, Location.HALL};
-		String [] playersMoved = board.moveTwoPlayers(players, locations);
+		board.moveTwoPlayers(players, locations);
 		System.out.println(board.getPlayersLocation("Braden"));
 		System.out.println(board.getPlayersLocation("Will"));
 		
@@ -25,6 +25,15 @@ public class Driver {
 		
 		// All game pieces at certain location
 		System.out.println(board.getGamePiecesAtLocation(Location.STUDY));
+		
+		// Get all players
+		System.out.println(board.getPlayers());
+		
+		// Get all locations
+		System.out.println(board.getPlayerLocations());
+		
+		//Get all pieces
+		System.out.println(board.getPlayerPieces());
 		
 
 	}
