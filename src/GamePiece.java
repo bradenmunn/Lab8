@@ -1,5 +1,5 @@
 
-public enum GamePiece implements BoardGame{
+public enum GamePiece{
 	RED_RACER (new GamePieceAppearance(Color.RED, Shape.RACECAR), 0), 
 	BLUE_RACER (new GamePieceAppearance(Color.BLUE, Shape.RACECAR), 2), 
 	MAGENTA_RACER (new GamePieceAppearance(Color.MAGENTA, Shape.RACECAR), 1), 
@@ -41,8 +41,7 @@ public enum GamePiece implements BoardGame{
 	
 	public String toString()
 	{
-		//TODO
-		return String.format("%s: a %s %s with priority %d", this.va,this.getColor(), this.getShape() this.priority)
+		return String.format("%s: a %s %s with priority %d", this.name() ,this.getColor(), this.getShape(), this.priority);
 	}
 }
 

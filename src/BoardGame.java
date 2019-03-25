@@ -1,6 +1,9 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Set;
+
+
 
 public class BoardGame {
 	
@@ -33,8 +36,6 @@ public class BoardGame {
 	 */
 	public boolean addPlayer(String playerName, GamePiece gamePiece, Location initialLocation)
 	{
-		//TODO: check to see if the variable should be "initialLocation" and not
-		// "intialLocation like in the UML
 		
 		if(playerPieces.containsValue(gamePiece))
 		{
@@ -42,7 +43,9 @@ public class BoardGame {
 		}
 		else
 		{
-			
+			playerPieces.put(playerName, gamePiece);
+			playerLocations.put(playerName, initialLocation);
+			return true;
 		}
 	}
 	
@@ -53,7 +56,6 @@ public class BoardGame {
 	 */
 	public GamePiece getPlayerGamePiece(String playerName)
 	{
-		//TODO: NOT SURE IF THIS IS RIGHT!!!
 		return playerPieces.get(playerName);
 	}
 	
@@ -65,8 +67,16 @@ public class BoardGame {
 	 */
 	public String getPlayerWithGamePiece(GamePiece gamePiece)
 	{
-		//TODO
+		Set<String> players = playerPieces.keySet();
+		for(String name: players)
+		{
+			if(playerPieces.get(name).equals(gamePiece))
+			{
+				return name;
+			}
+		}
 		
+		return null;
 	}
 	
 	/**
@@ -76,29 +86,74 @@ public class BoardGame {
 	 */
 	public void movePlayer(String playerName, Location newLocation)
 	{
-		//TODO
-		
+		playerLocations.put(playerName, newLocation);
 	}
 	
 	public String[] moveTwoPlayers(String[] playerNames, Location[] newLocations)
 	{
-		//TODO
+		String[] playersMoved = new String[2];
+		
+		//The piece to be moved first, based on priority
+		GamePiece first = GamePiece.movesFirst(playerPieces.get(playerNames[0]), playerPieces.get(playerNames[1]));
+		
+		
+		if(first.equals(playerPieces.get(playerNames[0])))
+		{
+			//Moves the players in order of priority
+			playersMoved[0] = playerNames[0];
+			playerLocations.put(playerNames[0], newLocations[0]);
+			
+			playersMoved[1] = playerNames[1];
+			playerLocations.put(playerNames[1], newLocations[1]);
+		}
+		else
+		{
+			playersMoved[0] = playerNames[1];
+			playerLocations.put(playerNames[1], newLocations[1]);
+			
+			playersMoved[1] = playerNames[0];
+			playerLocations.put(playerNames[0], newLocations[0]);
+		}
+		
+		return playersMoved;
 	}
 	
-	public Location gerPlayersLocation(String player)
+	public Location getPlayersLocation(String player)
 	{
-		//TODO: NOT SURE IF THIS IS RIGHT!!!
 		return playerLocations.get(player);
 	}
 	
 	public ArrayList<String> getPlayersAtLocation(Location loc)
 	{
-		//TODO
+		ArrayList<String> playersAtLoc = new ArrayList<String>();
+		Set<String> players = playerLocations.keySet();
+		
+		for(String i: players)
+		{
+			if(playerLocations.get(i).equals(loc))
+			{
+				playersAtLoc.add(i);
+			}
+		}
+		
+		return playersAtLoc;
 	}
 	
 	public ArrayList<GamePiece> getGamePiecesAtLocation(Location loc)
 	{
-		//TODO
+		ArrayList<GamePiece> pieces = new ArrayList<GamePiece>();
+		Set<String> players = playerLocations.keySet();
+		
+		for(String i: players)
+		{
+			if(playerLocations.get(i).equals(loc))
+			{
+				pieces.add(playerPieces.get(i));
+			}
+		}
+		
+		return pieces;
+	
 	}
 	
 	public Set<String> getPlayers()
@@ -109,12 +164,12 @@ public class BoardGame {
 	
 	public Set<Location> getPlayerLocations()
 	{
-		//TODO
+		return new HashSet<Location>(playerLocations.values());
 	}
 	
 	public Set<GamePiece> getPlayerPieces()
 	{
-		//TODO
+		return new HashSet<GamePiece>(playerPieces.values());
 	}
 
 }

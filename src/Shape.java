@@ -1,10 +1,9 @@
 
-public enum Shape {
+public enum Shape{
 	THIMBLE, BOOT, RACECAR;
 	
 	public String toString()
 	{
-		//TODO
-		return "";
+		return name().toLowerCase();
 	}
 }
