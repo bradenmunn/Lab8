@@ -25,4 +25,23 @@ public class EnumerationsTest {
 		
 	}
 	
+	@Test
+	public void locationTest()
+	{
+		Assert.assertEquals("Incorrect location name", "STUDY", Location.STUDY.name());
+	}
+	
+	@Test
+	public void shapeTest()
+	{
+		Assert.assertEquals("Incorrect shape name", "THIMBLE", Shape.THIMBLE.name());
+	}
+	
+	@Test
+	public void colorTest()
+	{
+		Assert.assertEquals("Incorrect r value", 255, Color.RED.getR());
+		Assert.assertEquals("Incorrect g value", 0, Color.RED.getG());
+		Assert.assertEquals("Incorrect b value", 0, Color.RED.getB());
+	}
 }

@@ -32,10 +32,8 @@ public class Driver {
 		// Get all locations
 		System.out.println(board.getPlayerLocations());
 		
-		//Get all pieces
+		// Get all pieces
 		System.out.println(board.getPlayerPieces());
-		
-
 	}
 
 }
