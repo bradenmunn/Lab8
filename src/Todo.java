@@ -12,6 +12,9 @@ Tasks:
 5. Complete GamePieceAppearance methods
 6. Implement Location enum
 7. Complete first 2 methods in BoardGame.java
+8. Finish BoardGame.java
+9. Test the BoardGame class using JUnit
+10. Test the enumerations using JUnit
 
 
 
@@ -23,6 +26,9 @@ Estimated Time (minutes):
 5. 10
 6. 5
 7. 20
+8. 30
+9. 60
+10. 60
 
 
 Actual Time (minutes):
@@ -33,6 +39,9 @@ Actual Time (minutes):
 5. 10
 6. 5
 7. 15
+8. 45
+9. 60
+10. 45
 
 
 */}
