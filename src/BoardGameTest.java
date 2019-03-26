@@ -150,6 +150,5 @@ public class BoardGameTest {
 		Assert.assertEquals("Incorrect pieces list", pieces, board.getPlayerPieces());
 	}
 	
-	
 
 }
